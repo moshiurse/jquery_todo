@@ -1,13 +1,22 @@
-<script src="css/bootstrap.min.css"></script>
-	<script src="css/style.css"></script>
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/app.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>To Do Application</title>
-	
+	<script src="jquery-3.2.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<link rel="stylesheet" type="text/css" src="../css/style.css">
 </head>
 <body>
 
@@ -15,7 +24,11 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>To DO Task</legend>
+<legend></legend>
+
+<div id="header">
+	<header><b>TO DO TASK APPLICATION</b></header>
+</div>
 
 <!-- Text input-->
 <div class="form-group">
@@ -31,7 +44,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="task">Task Detail</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="task" name="task">Enter your Task Detail</textarea>
+    <textarea class="form-control" id="task" name="task" placeholder="Enter your Task Detail"></textarea>
   </div>
 </div>
 
@@ -39,9 +52,13 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="button1idsave"></label>
   <div class="col-md-8">
-    <button id="button1idsave" name="button1idsave" class="btn btn-success">Save</button>
+    <button id="save" name="save" class="btn btn-success">Save</button>
     <button id="clear" name="clear" class="btn btn-danger">Clear</button>
   </div>
+</div>
+
+<div id="dataList">
+	
 </div>
 
 </fieldset>
