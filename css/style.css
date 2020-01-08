@@ -1,0 +1,48 @@
+body {
+  background: aliceblue;
+}
+
+#container {
+  border: 2px solid green;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+h1 {
+  font-style: italic;
+  text-align: center;
+}
+.input-div {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+input {
+  width: 300px;
+  border: 1px solid green;
+  background: white;
+  height: 25px;
+  text-align: center;
+}
+
+.task {
+  list-style: none;
+  font-size: 25px;
+  width: 250px;
+  border: 1px dotted blue;
+}
+
+.delete-todo {
+  padding: 0px 5px;
+  color: red;
+  border: 1px solid red;
+}
+
+.main-task {
+  padding-left: 8px;
+}

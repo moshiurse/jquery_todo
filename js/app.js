@@ -1,25 +1,31 @@
-$(document).ready(function(){
-
-	event.preventDefault();
-	viewData();
-
-$("#save").click(function(){
-	// alert("button clicked");
-
-	var data = {};
-
-	data["title"] = $trim($("#task_title").val());	
-	data["name"] = $trim($("#task").val());
-
-
-
+$(document).ready(function() {
+  $("#task").on("keypress", function(e) {
+    if (e.keyCode === 13 || e.which === 13) {
+      addtask();
+    }
+  });
 });
 
-function viewData(){
-
-	var list = "<ul><li id="headlist"></li><li id="tasklist"></li></ul>";
-
-
+function addtask() {
+  let task = $("#task").val();
+  if (task !== "") {
+    var li =
+      "<li class='task'><span class='delete-todo'>X</span><span class='main-task'>" +
+      task +
+      "</span></li>";
+    $("#task-list").append(li);
+    $("#task").val("");
+  }
 }
 
+$("li").on("click", function() {
+  $(this).toggoleClass("completed");
+}); //end li click event
+
+$("span").on("click", function(event) {
+  $(this)
+    .parent()
+    .fadeOut()
+    .remove();
+  event.stopPropagation();
 });
