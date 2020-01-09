@@ -41,8 +41,14 @@ input {
   padding: 0px 5px;
   color: red;
   border: 1px solid red;
+  cursor: pointer;
 }
 
 .main-task {
   padding-left: 8px;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: aqua;
 }
