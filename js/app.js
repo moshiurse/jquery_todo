@@ -32,10 +32,8 @@ $(document).ready(function() {
     var newTask = taskList.filter(function(task) {
       return task.id != id;
     });
-    console.log(taskList);
     addItemToLocalStorage(newTask);
     taskList = JSON.parse(localStorage.getItem("taskList"));
-    console.log(JSON.parse(localStorage.getItem("taskList")));
   });
 
   // Task Complete Action
@@ -48,20 +46,19 @@ $(document).ready(function() {
 
     var newData = taskList.map(el => {
       if (el.id == id) {
-        console.log(el);
         if (el.completed == false) {
-          // alert("haha");
           return Object.assign({}, el, { completed: true });
         } else {
-          // alert("false");
           return Object.assign({}, el, { completed: false });
         }
       }
       return el;
     });
-
+    console.log(newData);
     // Add Data To Local Storage
     addItemToLocalStorage(newData);
+    // console.log(JSON.parse(localStorage.getItem("taskList")));
+    taskList = JSON.parse(localStorage.getItem("taskList"));
     console.log(taskList);
   });
 
@@ -104,12 +101,18 @@ $(document).ready(function() {
   function generatedList() {
     var lists = JSON.parse(localStorage.getItem("taskList"));
     lists.map(list => {
+      var completed = "";
+      if (list.completed) {
+        completed = " completed";
+      }
       var li =
         "<li class='task' id='item_" +
         list.id +
         "'><span class='delete-todo' id='remove_" +
         list.id +
-        "'>X</span><span class='main-task' id='main_task_" +
+        "'>X</span><span class='main-task" +
+        completed +
+        "' id='main_task_" +
         list.id +
         "'>" +
         list.title +
