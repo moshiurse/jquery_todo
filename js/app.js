@@ -1,15 +1,15 @@
 $(document).ready(function() {
-  var id = 0;
-  var taskList = [];
   // localStorage.clear();
   if (!localStorage.getItem("total")) {
+    var id = 0;
     localStorage.setItem("total", id);
   } else {
     id = localStorage.getItem("total");
   }
 
   if (!localStorage.getItem("taskList")) {
-    localStorage.setItem("taskList", taskList);
+    var taskList = [];
+    localStorage.setItem("taskList", JSON.stringify(taskList));
   } else {
     taskList = JSON.parse(localStorage.getItem("taskList"));
   }
@@ -22,6 +22,7 @@ $(document).ready(function() {
 
   generatedList();
 
+  // Delete Action
   $(document).on("click", ".delete-todo", function() {
     var id = $(this)
       .attr("id")
@@ -31,10 +32,13 @@ $(document).ready(function() {
     var newTask = taskList.filter(function(task) {
       return task.id != id;
     });
+    console.log(taskList);
     addItemToLocalStorage(newTask);
-    console.log(newTask);
+    taskList = JSON.parse(localStorage.getItem("taskList"));
+    console.log(JSON.parse(localStorage.getItem("taskList")));
   });
 
+  // Task Complete Action
   $(document).on("click", ".main-task", function() {
     var id = $(this)
       .attr("id")
@@ -56,6 +60,7 @@ $(document).ready(function() {
       return el;
     });
 
+    // Add Data To Local Storage
     addItemToLocalStorage(newData);
     console.log(taskList);
   });
@@ -64,15 +69,14 @@ $(document).ready(function() {
     let task = $("#task").val();
     if (task !== "") {
       id++;
-      // localStorage.setItem("total", id);
+      localStorage.setItem("total", id);
+
       var item = {
         id: id,
         title: task,
         completed: false,
         date: new Date()
       };
-
-      // alert(localStorage.getItem("total"));
 
       taskList.push(item);
       addItemToLocalStorage(taskList);
